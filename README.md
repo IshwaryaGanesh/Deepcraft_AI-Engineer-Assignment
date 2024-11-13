@@ -1,98 +1,118 @@
-### テーマ: オイル温度予測モデルの構築
+### Theme: Building an oil temperature prediction model
 
-#### 課題概要
+#### Project overview
 
-この研修では、オイル温度データを用いて時系列データの予測モデルを構築します。探索的データ分析（EDA）から始め、最終的にはモデルの精度評価までを行います。機械学習を用いてオイル温度の予測を行い、その精度を検証することで、実務での応用を目指します。
+In this training, we will build a prediction model for time series data using oil temperature data. We will start with exploratory data analysis (EDA) and finally evaluate the accuracy of the model. We will use machine learning to predict oil temperature and verify its accuracy, aiming for practical application.
 
-#### データセットについて
+#### About the dataset
 
-ETDataset（Electricity Transformer Dataset）は、電力トランスフォーマの運用中に収集された時系列データを提供するリポジトリです。このデータセットには、電力トランスフォーマの様々なパラメータが含まれており、その中でもオイル温度に関連するデータは、トランスフォーマの状態を監視し、故障の予測やメンテナンスの最適化に利用されます。
+ETDataset (Electricity Transformer Dataset) is a repository that provides time series data collected during the operation of power transformers. This dataset contains various parameters of power transformers, among which data related to oil temperature is used to monitor the condition of the transformer, predict failures, and optimize maintenance.
 
-- **特徴**:
-  - **時系列データ**: 各パラメータは時間の経過に伴う変化を記録しており、特にオイル温度データは、時間によって変動する外部要因や内部の運用状況に影響を受けます。
-  - **高いデータ精度**: データはトランスフォーマの運用中に高い精度で記録されており、長期間にわたる監視データが含まれます。
-  - **実務への応用可能性**: これらのデータは、実務における機器の状態監視や予測保守（Predictive Maintenance）に役立つ情報を提供します。
+- **Characteristics**:
+- **Time series data**: Each parameter records changes over time, and oil temperature data in particular is affected by external factors and internal operating conditions that vary over time.
+- **High data accuracy**: The data is recorded with high accuracy during the operation of the transformer and contains monitoring data over a long period of time.
+- **Practical application**: These data provide useful information for equipment condition monitoring and predictive maintenance in practice.
 
-- **利用方法**:
-  - データは、電力トランスフォーマのオイル温度予測に焦点を当てた時系列分析に使用されます。
-  - 利用するデータはレポジトリに含まれるett.csvを使用してください。
-  - データの詳細や使い方については、[ETDatasetのGitHubリポジトリ](https://github.com/zhouhaoyi/ETDataset)にドキュメントが掲載されています。
+- **How ​​to use**:
+- The data will be used for time series analysis focusing on oil temperature prediction in power transformers.
+- Use ett.csv included in the repository for the data to be used.
+- For details on the data and how to use it, see the documentation in the [ETDataset GitHub repository](https://github.com/zhouhaoyi/ETDataset).
 
-#### 作業目安
+#### Estimated work
 
-- **期間**: 1週間
-- **作業時間**: 12時間 ~ 20時間
-- **タイムライン(想定)**:
-  - **2時間**: データの理解とEDA
-  - **2時間**: データ前処理と特徴量エンジニアリング
-  - **2時間**: モデルの選定とトレーニング
-  - **2時間**: モデルの評価と結果の分析
-  - **4~8時間**: 改善策の検討とモデルの再トレーニング
-  - **2~4時間**: 結果のまとめとプレゼンテーション資料作成
+- **Duration**: 1 week
+- **Work hours**: 12 to 20 hours
+- **Timeline (estimated)**:
+- **2 hours**: Data understanding and EDA
+- **2 hours**: Data preprocessing and feature engineering
+- **2 hours**: Model selection and training
+- **2 hours**: Model evaluation and analysis of results
+- **4 to 8 hours**: Consideration of improvement measures and model retraining
+- **2 to 4 hours**: Summary of results and preparation of presentation materials
 
-#### 課題内容
+#### Assignment content
 
-1. **データの理解とEDA**
-   - **概要**: ETDatasetに含まれるオイル温度データを使用して、基本統計量の確認、時系列のトレンドや季節性の検出、異常値の確認などを行います。
-   - **目標**: データの傾向を把握し、予測モデルに向けた課題を抽出する。
+1. **Data understanding and EDA**
+- **Overview**: Using the oil temperature data included in the ETDataset, we will check basic statistics, detect time series trends and seasonality, and check for outliers.
+- **Goal**: Identify data trends and extract issues for predictive models.
 
-2. **データ前処理と特徴量エンジニアリング**
-   - **概要**: 欠損値処理や正規化、スケーリングなどの前処理を行い、オイル温度(OT)予測に有用な特徴量を作成します。
-   - **目標**: モデルの精度を向上させるためのデータを整備する。
+2. **Data Preprocessing and Feature Engineering**
+- **Overview**: Perform preprocessing such as missing value handling, normalization, and scaling to create features useful for oil temperature (OT) prediction.
+- **Objective**: Prepare data to improve the accuracy of the model.
 
-3. **モデル選定とトレーニング**
-   - **概要**: 適切な予測モデルを選定し実装します。
-   - **目標**: オイル温度の予測精度を最大化できるモデルを構築する。
+3. **Model Selection and Training**
+- **Overview**: Select and implement an appropriate prediction model.
+- **Objective**: Build a model that can maximize the prediction accuracy of oil temperature.
 
-4. **モデルの評価と結果の分析**
-   - **概要**: モデルの予測精度を検証し、評価指標を計算します。
-   - **目標**: モデルの有効性を客観的に評価し、結果を分析する。
-   - **備考**: 評価指標はご自身で選定してください。ただし、選定理由は説明できるようにはしてください。
+4. **Model Evaluation and Results Analysis**
+- **Overview**: Verify the prediction accuracy of the model and calculate evaluation metrics.
+- **Objective**: Objectively evaluate the effectiveness of the model and analyze the results.
+- **Notes**: Please select your own evaluation metrics. However, please be prepared to explain the reason for your selection.
 
-5. **改善策の検討とモデルの再トレーニング**
-   - **概要**: モデルの改善点を見つけ、それを反映させた再トレーニングを行います。特に、特徴量の追加やモデルアーキテクチャの調整などを試みます。
-   - **目標**: より精度の高い予測モデルを構築する。
-   - **備考**: どのような仮説を持って検証を行い、結果としてどうだったかをプレゼンテーション資料にまとめてください。
+5. **Consider Improvement Measures and Retrain the Model**
+- **Overview**: Find areas for improvement in the model and retrain it to reflect those improvements. In particular, try adding features and adjusting the model architecture.
+- **Objective**: Build a more accurate predictive model.
 
-6. **結果のまとめとプレゼンテーション資料作成**
-   - **概要**: 研修での成果を資料としてまとめ、モデル構築のプロセスと結果をプレゼンテーション形式で報告します。
-   - **目標**: 技術的な成果をわかりやすく伝える。
+- **Note**: Please summarize in your presentation materials what hypotheses you used for verification and the results.
 
-#### 提出物
+6. **Summary of results and preparation of presentation materials**
 
-1. **実装したプログラム**:
-   - **提出方法**: 自身のGitHubアカウントにてリポジトリを作成し、コードをプッシュします。
-   - **README**: 実行方法を記載し、プログラムの概要を説明します。
+- **Outline**: Summarize the results of the training in materials and report the model building process and results in a presentation format.
 
-2. **プレゼンテーション用スライド**:
-   - **構成例**:
-     - **背景**: オイル温度予測の重要性や課題
-     - **データの分析結果**: EDAの結果と課題の抽出
-     - **技術概要**: 使用したモデルと特徴量エンジニアリングの手法（なぜそのモデルや特徴量を選んだのかを説明）
-     - **評価指標**: モデル評価に使用した指標とその結果
-     - **検証内容**: 改善策の背景にある仮説とその結果を一覧で示す
-     - **検証結果1**: 仮説1の検証結果と考察
-     - **検証結果2**: 仮説2の検証結果と考察
-     - **まとめ**: 結果のまとめと今後の展望
+- **Objective**: Communicate technical results in an easy-to-understand manner.
 
-3. **評価項目**
-   - **技術力観点**:
-     - データの理解と前処理が適切に行われているか
-     - 選択したモデルに適切な理由があるか
-     - 適切な評価指標の設計ができているか
-     - EDAやモデルの学習結果から適切な仮説が導かれ、検証が行われているか
-     - コードの可読性（コードの構造化、コメントの適切さなど）
+#### Submissions
 
-   - **ビジネス観点**:
-     - 技術的な内容をクライアントにわかりやすく説明できるか
-     - 作成された資料全体のストーリーに一貫性があるか
-     - 資料の各ページの内容（タイトル、ボディ、メッセージ）に一貫性があるか
-     - プレゼンテーションでわかりやすく説明できているか
-     - 決められた時間内にアウトプットを出せているか
+1. **Implemented program**:
 
-### 補足資料
+- **How ​​to submit**: Create a repository in your own GitHub account and push the code.
 
-- **スライドライティングの参考資料**:
-  - [スライドライティングの基本](https://note.com/powerpoint_jp/n/n812a673ce2ab)
-  - [スライド作成のテクニック](https://note.com/powerpoint_jp/n/n9a8fd26ee181)
-  - [Lecture on Slide Writing (Slideshare)](https://www.slideshare.net/slideshow/lecture-on-slide-writing/103255387)
+- **README**: Explain how to run the program and provide an overview of the program.
+
+2. **Presentation slides**:
+
+- **Example configuration**:
+
+- **Background**: Importance and issues of oil temperature prediction
+
+- **Data analysis results**: Extraction of EDA results and issues
+
+- **Technology overview**: Model used and feature engineering method (explain why the model and features were selected)
+
+- **Evaluation indicators**: Indicators used for model evaluation and their results
+
+- **Verification content**: List of hypotheses behind improvement measures and their results
+
+- **Verification result 1**: Verification results and considerations for hypothesis 1
+
+- **Verification result 2**: Verification results and considerations for hypothesis 2
+
+- **Summary**: Summary of results and future outlook
+
+3. **Evaluation items**
+
+- **Technical ability perspective**:
+
+- Is data understanding and preprocessing performed appropriately?
+
+- Is there an appropriate reason for the model selected?
+
+- Have appropriate evaluation indicators been designed?
+
+- Are appropriate hypotheses derived from the learning results of EDA and models and are they being verified?
+
+- Code readability (code structuring, appropriate comments, etc.)
+
+- **Business perspective**:
+- Can you explain technical content to clients in an easy-to-understand way?
+- Is there consistency in the overall story of the created materials?
+- Is the content of each page of the materials consistent (title, body, message)?
+- Is the presentation easy to understand?
+- Can you produce output within the allotted time?
+
+### Supplementary materials
+
+- **Reference materials for slide writing**:
+- [Basics of slide writing](https://note.com/powerpoint_jp/n/n812a673ce2ab)
+- [Techniques for creating slides](https://note.com/powerpoint_jp/n/n9a8fd26ee181)
+- [Lecture on Slide Writing (Slideshare)](https://www.slideshare.net/slideshow/lecture-on-slide-writing/103255387)
